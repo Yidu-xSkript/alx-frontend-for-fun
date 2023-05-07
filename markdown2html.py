@@ -46,7 +46,7 @@ if __name__ == "__main__":
     # If the number of arguments is less than 2: print in STDERR
     # if it doesn't comply with the statement exit with code 1.
     if len(sys.argv) != 3:
-        print("Usage: ./markdown2html.py <sys.argv[1]> <sys.argv[2]>", file=sys.stderr)
+        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
         sys.exit(1)
 
     # Interpret the Markdown file to HTML
