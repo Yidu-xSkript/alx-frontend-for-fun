@@ -6,9 +6,11 @@ but do you know how GitHub are rendering them?
 It's time to code a Markdown to HTML!
 """
 
+
 import sys
 import os
 import re
+
 
 def markdownToHtml(markdownFile, outputFile):
     """
@@ -34,7 +36,8 @@ def markdownToHtml(markdownFile, outputFile):
             if match:
                 headingLevel = len(match.group(1))
                 headingText = match.group(2)
-                html.append(f"<h{headingLevel}>{headingText}</h{headingLevel}>")
+                html.append(f"<h{headingLevel}>\
+                            {headingText}</h{headingLevel}>")
             else:
                 html.append(line.rstrip())
 
@@ -42,11 +45,13 @@ def markdownToHtml(markdownFile, outputFile):
     with open(outputFile, "w", encoding="utf-8") as f:
         f.write("\n".join(html))
 
+
 if __name__ == "__main__":
     # If the number of arguments is less than 2: print in STDERR
     # if it doesn't comply with the statement exit with code 1.
     if len(sys.argv) != 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print("Usage: ./markdown2html.py README.md README.html",
+              file=sys.stderr)
         sys.exit(1)
 
     # Interpret the Markdown file to HTML
